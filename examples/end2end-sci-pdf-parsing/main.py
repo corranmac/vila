@@ -163,8 +163,11 @@ def pipeline(
     pdf_predictor=None,
     relative_coordinates=False,
     return_csv=False,
+    page_tokens=None,
+    page_images=None,
 ):
-    page_tokens, page_images = pdf_extractor.load_tokens_and_image(input_pdf)
+    if page_tokens == None or page_images == None:
+        page_tokens, page_images = pdf_extractor.load_tokens_and_image(input_pdf)
 
     for idx, page_token in enumerate(page_tokens):
 
